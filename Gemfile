@@ -32,6 +32,9 @@ gem "jbuilder"
 # Add Tailwind CSS
 gem 'tailwindcss-rails'
 
+# Add Bootstrap
+gem 'bootstrap'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
