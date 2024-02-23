@@ -35,6 +35,9 @@ gem 'tailwindcss-rails'
 # Add Bootstrap
 gem 'bootstrap'
 
+# Add Sass
+gem 'sassc-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
