@@ -3,7 +3,7 @@ class Admin::CatagoriesController < ApplicationController
 
   # GET /admin/catagories or /admin/catagories.json
   def index
-    @admin_catagories = Admin::Catagory.all
+    @admin_catagories = Catagory.all
   end
 
   # GET /admin/catagories/1 or /admin/catagories/1.json
@@ -12,7 +12,7 @@ class Admin::CatagoriesController < ApplicationController
 
   # GET /admin/catagories/new
   def new
-    @admin_catagory = Admin::Catagory.new
+    @admin_catagory = Catagory.new
   end
 
   # GET /admin/catagories/1/edit
@@ -21,7 +21,7 @@ class Admin::CatagoriesController < ApplicationController
 
   # POST /admin/catagories or /admin/catagories.json
   def create
-    @admin_catagory = Admin::Catagory.new(admin_catagory_params)
+    @admin_catagory = Catagory.new(admin_catagory_params)
 
     respond_to do |format|
       if @admin_catagory.save
@@ -60,7 +60,7 @@ class Admin::CatagoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_catagory
-      @admin_catagory = Admin::Catagory.find(params[:id])
+      @admin_catagory = Catagory.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
