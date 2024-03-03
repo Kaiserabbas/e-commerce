@@ -10,8 +10,8 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this catagory", catagory, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this catagory", edit_catagory_path(catagory), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show this catagory", [:admin, catagory], class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this catagory", edit_admin_catagory_path(:admin_catagory), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>
