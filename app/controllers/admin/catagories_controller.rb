@@ -60,11 +60,11 @@ class Admin::CatagoriesController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_catagory
-      @admin_catagory = Catagory.find_by(params[:name])
+      @admin_catagory = Catagory.find_by(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def admin_catagory_params
-      params.require(:admin_catagory).permit(:name, :description)
+      params.require(:catagory).permit(:name, :description)
     end
 end
