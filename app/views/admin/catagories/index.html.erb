@@ -7,8 +7,46 @@
     <h1 class="font-bold text-4xl">Categories</h1>
     <%= link_to "New category", new_admin_catagory_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
-
+<%
+=begin%>
+ 
   <div id="admin_catagories" class="min-w-full">
     <%= render @admin_catagories %>
+  </div> 
+<%
+=end%>
+
+  
+  <div class="flex flex-col w-full">
+    <div class="overlow-x-auto sm:mx-0.5 lg:mx-0.5">
+      <div class="py-2 inline-block min-w-full">
+        <div class="overlow-x-auto">
+          <table class="min-w-full overflow-x-scroll">
+            <thead class="bg-white border-b">
+              <tr>
+                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
+                  Name
+                </th>
+                <th scope="col" class="text-sm font-medium text-gray-800 px-6 py-4 text-left">
+                  Description 
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @admin_catagories.each do |c| %>
+                <tr class="bg-gray-50 border-b">
+                  <td class="px-6 py-4 whitepsace-nowrap tex-sm font-medium text-gray-800 underline">
+                    <%= link_to c.name, edit_admin_catagory_path(c) %>
+                  </td>
+                  <td class="px-6 py-4 whitepsace-nowrap tex-sm font-medium text-gray-800">
+                    <%= c.description %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
