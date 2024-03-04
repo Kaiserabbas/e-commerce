@@ -15,6 +15,4 @@ Rails.application.routes.draw do
         root "admin#index", as: :admin_root
     end
     get "admin" => "admin#index"
-
-  
 end
