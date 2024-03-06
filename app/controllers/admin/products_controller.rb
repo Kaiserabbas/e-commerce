@@ -21,7 +21,7 @@ class Admin::ProductsController < AdminController
 
   # POST /admin/products or /admin/products.json
   def create
-    @admin_product = :Product.new(admin_product_params)
+    @admin_product = Product.new(admin_product_params)
 
     respond_to do |format|
       if @admin_product.save
@@ -65,6 +65,6 @@ class Admin::ProductsController < AdminController
 
     # Only allow a list of trusted parameters through.
     def admin_product_params
-      params.require(:admin_product).permit(:name, :description, :price, :catagory_id, :active)
+      params.require(:product).permit(:name, :description, :price, :catagory_id, :active)
     end
 end
