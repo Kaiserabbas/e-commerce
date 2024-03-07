@@ -28,19 +28,19 @@
               </tr>
             </thead>
             <tbody>
-              <% @admin_products.each do |c| %>
+              <% @admin_products.each do |p| %>
                 <tr class="bg-gray-50 border-b">
                   <td class="px-6 py-4 w-24 my">
-                    <%= c.image.present? ? image_tag(c.image) : image_tag("https://via.placeholder.com/50") %>
+                    <%= p.images.any? ? image_tag(p.images.first) : image_tag("https://via.placeholder.com/50") %>
                   </td>
                   <td class="px-6 py-4 whitepsace-nowrap tex-sm font-medium text-gray-800 underline">
-                    <%= link_to c.name, edit_admin_product_path(c) %>
+                    <%= link_to p.name, edit_admin_product_path(p) %>
                   </td>
                   <td class="text-teal px-6 py-4 whitepsace-nowrap tex-sm font-medium text-gray-800">
-                    <%= c.description %>
+                    <%= p.description %>
                   </td>
                   <td class="text-teal px-6 py-4 whitepsace-nowrap tex-sm font-medium text-gray-800">
-                    <%= c.price %>
+                    <%= p.price %>
                   </td>
                 </tr>
               <% end %>
