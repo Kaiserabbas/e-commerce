@@ -1,14 +1,23 @@
 <div id="<%= dom_id catagory %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= catagory.name %>
-  </p>
+  <div class="flex flex-row justify-between">
+    <div>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Name:</strong>
+      <%= catagory.name %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= catagory.description %>
-  </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Description:</strong>
+      <%= catagory.description %>
+    </p>
 
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Id:</strong>
+      <%= catagory.id %>
+    </p>
+    </div>
+    <%= image_tag catagory.image, class: "self-center justify-self-start w-60" %>
+  </div>
   <% if action_name != "show" %>
     <%= link_to "Show this catagory", [:admin, catagory], class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Edit this catagory", edit_admin_catagory_path(:admin_catagory), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
