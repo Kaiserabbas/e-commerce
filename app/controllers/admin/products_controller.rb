@@ -1,4 +1,4 @@
-class Admin::ProductsController < AdminController
+class Admin::ProductsController < AdminController 
   before_action :set_admin_product, only: %i[ show edit update destroy ]
 
   # GET /admin/products or /admin/products.json
@@ -8,6 +8,11 @@ class Admin::ProductsController < AdminController
 
   # GET /admin/products/1 or /admin/products/1.json
   def show
+  end
+  
+  # GET /admin/products/1/stock
+  def stock 
+    @admin_product = Product.find(params[:id])
   end
 
   # GET /admin/products/new
@@ -36,8 +41,15 @@ class Admin::ProductsController < AdminController
 
   # PATCH/PUT /admin/products/1 or /admin/products/1.json
   def update
+    @admin_product = Product.find(params[:id])
+
     respond_to do |format|
-      if @admin_product.update(admin_product_params)
+      if @admin_product.update(admin_product_params.except(:images))
+        if admin_product_params[:images].present?
+          admin_product_params[:images].each do |image|
+            @admin_product.images.attach(image)
+          end
+        end
         format.html { redirect_to admin_product_url(@admin_product), notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @admin_product }
       else
@@ -46,6 +58,7 @@ class Admin::ProductsController < AdminController
       end
     end
   end
+
 
   # DELETE /admin/products/1 or /admin/products/1.json
   def destroy
@@ -65,6 +78,6 @@ class Admin::ProductsController < AdminController
 
     # Only allow a list of trusted parameters through.
     def admin_product_params
-      params.require(:product).permit(:name, :description, :price, :category_id, :active, images: [])
+      params.require(:product).permit(:name, :description, :price, :catagory_id, :active, images: [])
     end
 end
