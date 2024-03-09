@@ -7,14 +7,7 @@
     <h1 class="font-bold text-4xl">Categories</h1>
     <%= link_to "New category", new_admin_catagory_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
-<%
-=begin%>
- 
-  <div id="admin_catagories" class="min-w-full">
-    <%= render @admin_catagories %>
-  </div> 
-<%
-=end%>
+
   <div class="flex flex-col w-full">
     <div class="overlow-x-auto sm:mx-0.5 lg:mx-0.5">
       <div class="py-2 inline-block min-w-full">
@@ -44,6 +37,7 @@
                   <td class="text-teal px-6 py-4 whitepsace-nowrap tex-sm font-medium text-gray-800">
                     <%= c.description %>
                   </td>
+                  <%= puts c.inspect %>
                 </tr>
               <% end %>
             </tbody>
