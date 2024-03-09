@@ -27,23 +27,27 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :catagory_id %>
-    <%= form.text_field :catagory_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :active %>
-    <%= form.check_box :active, class: "block mt-2 h-5 w-5" %>
-  </div>
-    
-  <div class="my-5">
-    <% if admin_product.images.any? %>
+  <% if admin_product.persisted? && admin_product.images.any? %>
       <% admin_product.images.each do |image| %>
-        <%= image_tag image, class: "w-20 h-20 object-cover rounded-md" %>
+        <%= image_tag image, class: "w-20 h-20 object-cover rounded-md flex" %>
       <% end %>
     <% end %>
     <%= form.label :images %>
     <%= form.file_field :images, multiple: true, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :catagory_id %>
+     <%= form.collection_select :catagory_id, Catagory.all, :id, :name, prompt: "Select a category", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+    
+  <div class="my-5">
+    <%= form.label :active %>
+    <%= form.check_box :active, class: "block mt-2 h-5 w-5" %>
+  </div>
+
+  <div class="my-5">
+    <%= link_to "Product Stock", admin_product_stocks_path(admin_product), class: "underline" %>
   </div>
 
   <div class="inline">
