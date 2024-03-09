@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_05_113420) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_09_094929) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -69,7 +69,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_113420) do
     t.index ["catagory_id"], name: "index_products_on_catagory_id"
   end
 
+  create_table "stocks", force: :cascade do |t|
+    t.string "size"
+    t.integer "amount"
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_stocks_on_product_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "catagories"
+  add_foreign_key "stocks", "products"
 end
