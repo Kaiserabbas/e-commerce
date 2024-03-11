@@ -3,7 +3,8 @@ class Admin::StocksController < AdminController
 
   # GET /stocks or /stocks.json
   def index
-    @admin_stock = Stock.where(product_id: params[:product_id])
+    @product = Product.find(params[:product_id])
+    @admin_stocks = Stock.where(product_id: params[:product_id])
   end
 
   # GET /stocks/1 or /stocks/1.json
@@ -56,7 +57,7 @@ class Admin::StocksController < AdminController
     @admin_stock.destroy!
 
     respond_to do |format|
-      format.html { redirect_to admin_product_stocks_url, notice: "Stock was successfully destroyed." }
+      format.html { redirect_to admin_product_stocks_url(@admin_stock.product), notice: "Stock was successfully destroyed." }
       format.json { head :no_content }
     end
   end
