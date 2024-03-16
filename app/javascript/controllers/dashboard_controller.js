@@ -1,43 +1,53 @@
-import { Controller } from "@hotwired/stimulus";
-import { Chart } from 'chart.js/auto';
+import { Controller } from "@hotwired/stimulus"
+import { Chart, registerables } from '../../vendor/chart.js'
 
+Chart.register(...registerables)
+
+// Connects to data-controller="dashboard"
 export default class extends Controller {
-  connect() {
-    console.log("Hello, Stimulus!");
-    var ctx = document.getElementById('revenueChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: 'bar',
+  static values = { revenue: Array }
+
+  initialize() {
+    const data = [20, 30, 40, 50, 60, 70, 80]
+    const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+    const ctx = document.getElementById('revenueChart')
+
+    new Chart(ctx, {
+      type: 'line',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: labels,
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
+          label: 'Revenue $',
+          data: data,
+          borderWidth: 3,
+          fill: true
         }]
       },
       options: {
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
         scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
           y: {
+            border: {
+              dash: [5, 5]
+            },
+            grid: {
+              color: "#d4f3ef"
+            },
             beginAtZero: true
           }
         }
       }
-    });
+    })
+
   }
 }
