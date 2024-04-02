@@ -1,5 +1,5 @@
 class Admin::CatagoriesController < AdminController
-  before_action :set_admin_catagory, only: %i[ show edit update destroy ]
+  before_action :set_admin_catagory, only: %i[show edit update destroy]
 
   # GET /admin/catagories or /admin/catagories.json
   def index
@@ -58,13 +58,14 @@ class Admin::CatagoriesController < AdminController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_catagory
-      @admin_catagory = Catagory.find_by(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def admin_catagory_params
-      params.require(:catagory).permit(:name, :description, :image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin_catagory
+    @admin_catagory = Catagory.find_by(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def admin_catagory_params
+    params.require(:catagory).permit(:name, :description, :image)
+  end
 end
