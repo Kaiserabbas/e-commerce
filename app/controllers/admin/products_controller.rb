@@ -1,5 +1,5 @@
-class Admin::ProductsController < AdminController 
-  before_action :set_admin_product, only: %i[ show edit update destroy ]
+class Admin::ProductsController < AdminController
+  before_action :set_admin_product, only: %i[show edit update destroy]
 
   # GET /admin/products or /admin/products.json
   def index
@@ -9,9 +9,9 @@ class Admin::ProductsController < AdminController
   # GET /admin/products/1 or /admin/products/1.json
   def show
   end
-  
+
   # GET /admin/products/1/stock
-  def stock 
+  def stock
     @admin_product = Product.find(params[:id])
   end
 
@@ -59,7 +59,6 @@ class Admin::ProductsController < AdminController
     end
   end
 
-
   # DELETE /admin/products/1 or /admin/products/1.json
   def destroy
     @admin_product.destroy!
@@ -71,13 +70,14 @@ class Admin::ProductsController < AdminController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_product
-      @admin_product = Product.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def admin_product_params
-      params.require(:product).permit(:name, :description, :price, :catagory_id, :active, images: [])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin_product
+    @admin_product = Product.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def admin_product_params
+    params.require(:product).permit(:name, :description, :price, :catagory_id, :active, images: [])
+  end
 end
