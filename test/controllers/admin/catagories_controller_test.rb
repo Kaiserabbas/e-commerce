@@ -17,7 +17,8 @@ class Admin::CatagoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create admin_catagory" do
     assert_difference("Admin::Catagory.count") do
-      post admin_catagories_url, params: { admin_catagory: { description: @admin_catagory.description, name: @admin_catagory.name } }
+      post admin_catagories_url,
+           params: { admin_catagory: { description: @admin_catagory.description, name: @admin_catagory.name } }
     end
 
     assert_redirected_to admin_catagory_url(Admin::Catagory.last)
@@ -34,7 +35,8 @@ class Admin::CatagoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update admin_catagory" do
-    patch admin_catagory_url(@admin_catagory), params: { admin_catagory: { description: @admin_catagory.description, name: @admin_catagory.name } }
+    patch admin_catagory_url(@admin_catagory),
+          params: { admin_catagory: { description: @admin_catagory.description, name: @admin_catagory.name } }
     assert_redirected_to admin_catagory_url(@admin_catagory)
   end
 
