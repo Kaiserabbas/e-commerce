@@ -17,7 +17,9 @@ class Admin::OrdersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create admin_order" do
     assert_difference("Admin::Order.count") do
-      post admin_orders_url, params: { admin_order: { address: @admin_order.address, customer_email: @admin_order.customer_email, fulfilled: @admin_order.fulfilled, total: @admin_order.total } }
+      post admin_orders_url,
+           params: { admin_order: { address: @admin_order.address, customer_email: @admin_order.customer_email,
+                                    fulfilled: @admin_order.fulfilled, total: @admin_order.total } }
     end
 
     assert_redirected_to admin_order_url(Admin::Order.last)
@@ -34,7 +36,9 @@ class Admin::OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update admin_order" do
-    patch admin_order_url(@admin_order), params: { admin_order: { address: @admin_order.address, customer_email: @admin_order.customer_email, fulfilled: @admin_order.fulfilled, total: @admin_order.total } }
+    patch admin_order_url(@admin_order),
+          params: { admin_order: { address: @admin_order.address, customer_email: @admin_order.customer_email,
+                                   fulfilled: @admin_order.fulfilled, total: @admin_order.total } }
     assert_redirected_to admin_order_url(@admin_order)
   end
 
