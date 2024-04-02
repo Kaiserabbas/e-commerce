@@ -17,7 +17,9 @@ class Admin::ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create admin_product" do
     assert_difference("Admin::Product.count") do
-      post admin_products_url, params: { admin_product: { active: @admin_product.active, catagory_id: @admin_product.catagory_id, description: @admin_product.description, name: @admin_product.name, price: @admin_product.price } }
+      post admin_products_url,
+           params: { admin_product: { active: @admin_product.active, catagory_id: @admin_product.catagory_id,
+                                      description: @admin_product.description, name: @admin_product.name, price: @admin_product.price } }
     end
 
     assert_redirected_to admin_product_url(Admin::Product.last)
@@ -34,7 +36,9 @@ class Admin::ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update admin_product" do
-    patch admin_product_url(@admin_product), params: { admin_product: { active: @admin_product.active, catagory_id: @admin_product.catagory_id, description: @admin_product.description, name: @admin_product.name, price: @admin_product.price } }
+    patch admin_product_url(@admin_product),
+          params: { admin_product: { active: @admin_product.active, catagory_id: @admin_product.catagory_id,
+                                     description: @admin_product.description, name: @admin_product.name, price: @admin_product.price } }
     assert_redirected_to admin_product_url(@admin_product)
   end
 
