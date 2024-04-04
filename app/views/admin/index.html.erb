@@ -39,4 +39,37 @@
     <div data-controller="dashboard" data-dashboard-revenue-value="<%= @revenue_by_day.to_json %>">
       <canvas id="revenueChart"></canvas>
     </div>
+    <div class = "flex flex-col w-full">
+      <h2 class="text-2xl text-gray-800 font-medium mb-4 mt-8 ">Recenet Unfulfilled Orders</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-gray-100 overflow-x-scroll style="border-collapse: separate;border-spacing: 0"">
+          <thead>
+            <tr>
+              <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
+              <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+              <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Date</th>
+              <th class="px-6 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Total Amount</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-600">
+            <% @orders.each do |order| %>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900"><%= link_to order.id, admin_order_path(order), class: "underline" %></div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900"><%= order.customer_email %></div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900"><%= order.created_at.strftime("%B %d, %Y %H:%M")  %></div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900"><%= (order.total/100.00).to_s %></div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
