@@ -41,6 +41,9 @@ gem 'bootstrap'
 # Add Sass
 gem 'sassc-rails'
 
+# Add Faker
+gem 'faker'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
