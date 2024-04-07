@@ -36,6 +36,8 @@ class Admin::CatagoriesController < AdminController
 
   # PATCH/PUT /admin/catagories/1 or /admin/catagories/1.json
   def update
+    @admin_catagory = Catagory.find(params[:id])
+
     respond_to do |format|
       if @admin_catagory.update(admin_catagory_params)
         format.html { redirect_to admin_catagory_url(@admin_catagory), notice: "Catagory was successfully updated." }
@@ -61,7 +63,7 @@ class Admin::CatagoriesController < AdminController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_admin_catagory
-    @admin_catagory = Catagory.find_by(params[:id])
+    @admin_catagory = Catagory.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
