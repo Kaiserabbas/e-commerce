@@ -1,29 +1,49 @@
-<nav class="fixed w-full top-0 bg-gray-100 z-10 py-4">
-  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-    <div class="relative flex items-center justify-between h-16">
-      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
-        <div class="hidden sm:flex items-center justify-center">
-          <div class="flex space-x-10">
-            <%= link_to 'Shop', root_path, class: "text-gray-500 hover:underline py-2 rounded-md text-md font-medium" %>
-          </div>
-        </div>
-        <div class="flex-shrink-0 flex items-center">
-          <%= link_to root_path do %>
-            <%= image_tag 'logo.png', class: 'block lg:hidden h-20 w-auto rounded-2xl' %>
+<nav class="fixed top-0 w-full bg-gray-800 shadow-md z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png', class: 'h-10 lg:h-12 w-auto' %>
+        <% end %>
+      </div>
+
+      <!-- Navigation links -->
+      <div class="hidden sm:flex sm:items-center sm:ml-6">
+        <div class="flex space-x-6">
+          <%= link_to 'Shop', root_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
+          <%= link_to root_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" do %>
+            <%= icon 'fa-solid', 'shopping-cart' %>
           <% end %>
-          <%= link_to root_path do %>
-            <%= image_tag 'logo.png', class: 'hidden lg:block h-20 w-auto rounded-xl' %>
-          <% end %>
-        </div>
-        <div class="hidden sm:flex sml:ml-6 items-center justify-center">
-          <div class="flex space-x-10">
-            <%= link_to root_path, class: "text-gray-500 hover:underline py-2 rounded-md text-md font-medium" do %>
-              <%= icon 'fa-solid', 'shopping-cart' %>
-            <% end %>
-            <%= link_to "Admin", new_admin_session_path, class: "text-gray-500 hover:underline py-2 rounded-md text-md font-medium" %>
-          </div>
+          <%= link_to "Admin", new_admin_session_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
         </div>
       </div>
+
+      <!-- Mobile menu button -->
+      <div class="-mr-2 flex sm:hidden">
+        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <!-- Heroicon name: menu -->
+          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <!-- Heroicon name: menu-alt-1 -->
+          <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="sm:hidden" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <%= link_to 'Shop', root_path, class: "text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium" %>
+      <%= link_to root_path, class: "text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium" do %>
+        <%= icon 'fa-solid', 'shopping-cart' %>
+      <% end %>
+      <%= link_to "Admin", new_admin_session_path, class: "text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium" %>
     </div>
   </div>
 </nav>
