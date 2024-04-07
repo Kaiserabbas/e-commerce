@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     authenticate :admin_user do
         root "admin#index", as: :admin_root
     end
+    
+    resources :catagories, only: [:show] 
     get "admin" => "admin#index"
-    get "catagory" => "catagory#index"
+  
 
 end
