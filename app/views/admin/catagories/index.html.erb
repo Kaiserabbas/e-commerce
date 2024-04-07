@@ -32,7 +32,8 @@
                     <%= c.image.present? ? image_tag(c.image) : image_tag("https://via.placeholder.com/50") %>
                   </td>
                   <td class="px-6 py-4 whitepsace-nowrap tex-sm font-medium text-gray-800 underline">
-                    <%= link_to c.name, edit_admin_catagory_path(c) %>
+                    <%= link_to c.name, edit_admin_catagory_path(c) %> 
+                    <%= c.id %>
                   </td>
                   <td class="text-teal px-6 py-4 whitepsace-nowrap tex-sm font-medium text-gray-800">
                     <%= c.description %>
