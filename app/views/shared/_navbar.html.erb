@@ -12,7 +12,7 @@
       <div class="hidden sm:flex sm:items-center sm:ml-6">
         <div class="flex space-x-6">
           <%= link_to 'Shop', root_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
-          <%= link_to root_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" do %>
+          <%= link_to cart_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" do %>
             <%= icon 'fa-solid', 'shopping-cart' %>
           <% end %>
           <%= link_to "Admin", new_admin_session_path, class: "text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium" %>
@@ -40,7 +40,7 @@
   <div class="sm:hidden" id="mobile-menu">
     <div class="px-2 pt-2 pb-3 space-y-1">
       <%= link_to 'Shop', root_path, class: "text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium" %>
-      <%= link_to root_path, class: "text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium" do %>
+      <%= link_to cart_path, class: "text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium" do %>
         <%= icon 'fa-solid', 'shopping-cart' %>
       <% end %>
       <%= link_to "Admin", new_admin_session_path, class: "text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium" %>
