@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :orders
     resources :catagories
     resources :products do
-      resources :stocks
+      resources :stocks, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     end
   end
   devise_for :admins
@@ -20,10 +20,9 @@ Rails.application.routes.draw do
   root "home#index"
     authenticate :admin_user do
         root "admin#index", as: :admin_root
-    end
-    
-    resources :catagories, only: [:show] 
+    end    
+    resources :catagories, only: [:show]
+    resources :products, only: [:show] 
     get "admin" => "admin#index"
-  
-
+    get "cart" => "carts#show"
 end
