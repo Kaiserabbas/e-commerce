@@ -1,0 +1,24 @@
+<h1 class="text-3xl font-bold text-center py-4"><%= @catagory.name %> </h1>
+<div class="min-h-screen flex flex-col justify-center bg-gray-100">
+  <div class="flex flex-wrap flex-col mt-6">
+    <h2 class="text-2xl font-semibold text-gray-800 text-center flex justify-center">Filter</h2>
+  </div>
+  <div class="flex flex-wrap flex-grow mt-6 gap-10 justify-center items-start">
+    <% if @products.empty? %>
+      <p class="text-2xl text-center text-gray-800">No Products Found</p>
+    <% else %>
+      <% @products.each do |product| %>
+        <%= link_to product_path(product), class: "group" do %>
+          <div class="max-w-xs flex flex-col p-4 justify-center items-center bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-200">
+            <% if product.images.any? %>
+              <%= image_tag product.images.first, class: "w-48 h-auto rounded-lg group-hover:scale-105 transition-transform duration-200" %>
+            <% else %>
+              <%= image_tag "https://via.placeholder.com/512", class: "w-48 h-auto rounded-lg group-hover:scale-105 transition-transform duration-200" %>
+            <% end %>             
+            <p class="mt-6 font-medium text-gray-800 text-center group-hover:text-blue-600 transition-colors duration-200"><%= product.name %></p>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
