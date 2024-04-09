@@ -1,1 +1,9 @@
-<h1>Carts Page</h1>
+<div class="min-h-screen flex flex-col items-center justify-center">
+  <h1 class="text-3xl font-bold mb-8">Cart Page</h1>
+  <div id="errorContainer" class="mb-8"></div>
+  <div data-controller="cart" class="flex flex-col items-center">
+    <div class="font-medium text-lg mb-4" id="total"></div>
+    <button class="py-2 px-4 bg-gray-500 hover:bg-blue-600 rounded text-white mb-4" data-action="click->cart#checkout">Checkout</button>
+    <button class="py-2 px-4 bg-gray-500 hover:bg-blue-600 rounded text-white" data-action="click->cart#clear">Clear Cart</button>
+  </div>
+</div>
